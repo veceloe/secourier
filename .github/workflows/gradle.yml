@@ -1,8 +1,13 @@
-name: Docker Image CI
+name: Java CI with Gradle
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+permissions:
+  contents: read
 
 jobs:
   build:
