@@ -5,10 +5,10 @@ plugins {
 }
 
 group = "telegram"
-version = "0.0.1-SNAPSHOT"
+version = "0.2"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_19
+    sourceCompatibility = JavaVersion.VERSION_17
 }
 
 repositories {
@@ -21,11 +21,16 @@ dependencies {
     implementation("org.telegram:telegrambots:6.5.0")
     compileOnly("org.projectlombok:lombok:1.18.26")
     annotationProcessor("org.projectlombok:lombok:1.18.26")
-    implementation("org.json:json:20230227")
+    implementation("org.json:json:20231013")
     implementation("org.jsoup:jsoup:1.15.3")
     implementation("org.springframework.boot:spring-boot-starter-mail")
 }
 
-    tasks.withType<Test> {
+tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+tasks.jar {
+    archiveBaseName.set("secourier")
+    archiveVersion.set("0.2")
 }
